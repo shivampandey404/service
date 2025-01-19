@@ -1,0 +1,88 @@
+const express = require('express');
+const router = express.Router();
+const axios = require('axios');
+
+// Cashfree test credentials
+const TEST_APP_ID = "TEST2234234234234";
+const TEST_SECRET_KEY = "TEST_SECRET_KEY_23423423423";
+const TEST_API_URL = "https://sandbox.cashfree.com/pg";
+
+// Test Card Details
+const TEST_CARDS = {
+  success: {
+    number: '4111 1111 1111 1111',
+    expiry: '12/24',
+    cvv: '123',
+    name: 'Test User'
+  },
+  failure: {
+    number: '4111 1111 1111 1112',
+    expiry: '12/24',
+    cvv: '123',
+    name: 'Test User'
+  }
+};
+
+// Create order
+router.post('/create-order', async (req, res) => {
+  try {
+    const { orderId, orderAmount } = req.body;
+
+    const response = await axios.post(
+      `${TEST_API_URL}/orders`,
+      {
+        order_id: orderId,
+        order_amount: orderAmount,
+        order_currency: "INR",
+        customer_details: {
+          customer_id: "CUST_" + Date.now(),
+          customer_name: "Test User",
+          customer_email: "test@example.com",
+          customer_phone: "9999999999"
+        },
+        order_meta: {
+          return_url: "http://localhost:3000/payment/success?order_id={order_id}"
+        }
+      },
+      {
+        headers: {
+          'x-client-id': TEST_APP_ID,
+          'x-client-secret': TEST_SECRET_KEY,
+          'x-api-version': '2022-09-01'
+        }
+      }
+    );
+
+    res.json({
+      paymentSessionId: response.data.payment_session_id
+    });
+
+  } catch (error) {
+    console.error('Order creation error:', error);
+    res.status(500).json({ error: 'Failed to create order' });
+  }
+});
+
+// Verify payment
+router.post('/verify', async (req, res) => {
+  const { orderId } = req.body;
+
+  try {
+    const response = await axios.get(
+      `${TEST_API_URL}/orders/${orderId}`,
+      {
+        headers: {
+          'x-client-id': TEST_APP_ID,
+          'x-client-secret': TEST_SECRET_KEY,
+          'x-api-version': '2022-09-01'
+        }
+      }
+    );
+
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ error: 'Payment verification failed' });
+  }
+});
+
+module.exports = router; 
