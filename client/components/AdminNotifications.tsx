@@ -11,8 +11,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Loader2 } from "lucide-react"
 
 // Configure axios and socket.io
-axios.defaults.baseURL = 'https://service-backend-1iq4.onrender.com'
-const socket = io('https://service-backend-1iq4.onrender.com')
+axios.defaults.baseURL = 'https://service-backend-orkd.onrender.com'
+const socket = io('https://service-backend-orkd.onrender.com')
 
 interface Booking {
   _id: string;
@@ -154,7 +154,7 @@ export default function AdminNotifications() {
 
     setIsReplying(true);
     try {
-      const response = await axios.post(`https://service-backend-1iq4.onrender.com/api/admin/bookings/${bookingId}/reply`, {
+      const response = await axios.post(`https://service-backend-orkd.onrender.com/api/admin/bookings/${bookingId}/reply`, {
         reply: replyText,
         bookingId: bookingId
       });
