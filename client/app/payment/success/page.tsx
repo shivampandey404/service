@@ -26,7 +26,7 @@ interface BookingData {
   services: Service[];
 }
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'https://service-backend-orkd.onrender.com';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 function App() {
