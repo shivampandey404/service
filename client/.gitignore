@@ -2,8 +2,10 @@
 node_modules/
 
 # Next.js build output
-.next/
-out/
+
+# .next/
+# out/
+
 
 # Logs
 logs/
