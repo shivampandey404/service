@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prepare": "echo 'Prepare script running...'",
+
     "vercel-build": "npm run prepare && next build",
     "start": "next start",
     "lint": "next lint"
