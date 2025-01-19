@@ -18,9 +18,11 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'http://localhost:3000', // Your Next.js client URL
+    origin: 'https://service-xeun.vercel.app', // Your Next.js client URL
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    
 }));
 
 // Connect to Database
