@@ -70,7 +70,7 @@ export default function Header() {
 
     setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/generate-otp", { email });
+      const response = await axios.post("https://service-backend-1iq4.onrender.com/api/generate-otp", { email });
       console.log('OTP Generation Response:', response.data); // Debug log
       
       if (response.data.success) {
@@ -95,7 +95,7 @@ export default function Header() {
 
     setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/verify-otp", { email, otp });
+      const response = await axios.post("https://service-backend-1iq4.onrender.com/api/verify-otp", { email, otp });
       if (response.data.success) {
         const userData = {
           ...response.data.user,
