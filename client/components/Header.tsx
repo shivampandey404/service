@@ -95,7 +95,7 @@ export default function Header() {
 
     setIsLoading(true);
     try {
-      const response = await axios.post("https://service-backend-orkd.onrender.com/api/verify-otp", { email, otp });
+      const response = await axios.post("https://service-da95.onrender.com/api/verify-otp", { email, otp });
       if (response.data.success) {
         const userData = {
           ...response.data.user,
