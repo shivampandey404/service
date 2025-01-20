@@ -11,8 +11,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Loader2 } from "lucide-react"
 
 // Configure axios and socket.io
-axios.defaults.baseURL = 'https://service-backend-orkd.onrender.com'
-const socket = io('https://service-backend-orkd.onrender.com')
+axios.defaults.baseURL = 'https://service-da95.onrender.com'
+const socket = io('https://service-da95.onrender.com')
 
 interface Booking {
   _id: string;

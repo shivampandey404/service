@@ -16,7 +16,7 @@ declare global {
 
 type PaymentMethod = 'card' | 'upi' | 'cod'
 
-axios.defaults.baseURL = 'https://service-backend-orkd.onrender.com'
+axios.defaults.baseURL = 'https://service-da95.onrender.com'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 export default function PaymentPage() {

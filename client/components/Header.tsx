@@ -70,7 +70,7 @@ export default function Header() {
 
     setIsLoading(true);
     try {
-      const response = await axios.post("https://service-backend-orkd.onrender.com/api/generate-otp", { email });
+      const response = await axios.post("https://service-da95.onrender.com/api/generate-otp", { email });
       console.log('OTP Generation Response:', response.data); // Debug log
       
       if (response.data.success) {

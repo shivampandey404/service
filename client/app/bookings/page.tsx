@@ -8,8 +8,8 @@ import io from 'socket.io-client';
 import { loadStripe } from '@stripe/stripe-js';
 
 // Configure axios and socket.io
-axios.defaults.baseURL = 'https://service-backend-orkd.onrender.com';
-const socket = io('https://service-backend-orkd.onrender.com');
+axios.defaults.baseURL = 'https://service-da95.onrender.com';
+const socket = io('https://service-da95.onrender.com');
 
 // Initialize Stripe
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
