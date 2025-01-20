@@ -85,11 +85,13 @@ export default function AdminNotifications() {
   const handleStatusUpdate = async (bookingId: string, newStatus: string) => {
     setUpdatingBookingId(bookingId);
     try {
+      console.log(`Updating booking status for ${bookingId} to ${newStatus}`); // Debug log
       const response = await axios.put(`/api/bookings/${bookingId}/status`, {
         status: newStatus
       });
 
       if (response.data.success) {
+        console.log(`Booking status updated successfully: ${response.data}`); // Debug log
         socket.emit('bookingStatusUpdate', {
           bookingId,
           status: newStatus
