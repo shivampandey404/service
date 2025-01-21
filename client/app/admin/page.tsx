@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'react-hot-toast'
 import AdminNotifications from '@/components/AdminNotifications'
 
-const ADMIN_EMAIL = 'kumarraushan04702@gmail.com';
+const ADMIN_EMAIL = 'prkservicegroup2025@gmail.com';
 
 export default function AdminDashboard() {
   const router = useRouter()
